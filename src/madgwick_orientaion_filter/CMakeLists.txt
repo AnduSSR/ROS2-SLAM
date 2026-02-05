@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(Madgwick_Orientaion_Filter)
+project(madgwick_orientaion_filter)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
