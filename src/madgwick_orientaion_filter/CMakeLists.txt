@@ -9,10 +9,25 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(dependencies REQUIRED)
+
+find_package(ament_index_cpp REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
+add_executable(MOF src/main.cpp)
+add_executable(IMUS src/imu_sim.cpp)
+
+ament_target_dependencies(MOF rclcpp dependencies)
+ament_target_dependencies(IMUS rclcpp dependencies ament_index_cpp)
+
+install(TARGETS
+  MOF
+  IMUS
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(DIRECTORY include/ DESTINATION share/${PROJECT_NAME}/include)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
