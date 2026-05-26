@@ -19,7 +19,8 @@ ament_target_dependencies(image_publisher
   rclcpp 
   sensor_msgs 
   cv_bridge 
-  OpenCV
+  OpenCV 
+  message_filters
 )
 
 install(TARGETS
